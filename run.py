@@ -37,7 +37,7 @@ logger = logging.getLogger(__name__)
 CALCULATE, TRADE, DECISION = range(3)
 
 # allowed FX symbols
-SYMBOLS = ['AUDCAD', 'AUDCHF', 'AUDJPY', 'AUDNZD', 'AUDUSD', 'CADCHF', 'CADJPY', 'CHFJPY', 'EURAUD', 'EURCAD', 'EURCHF', 'EURGBP', 'EURJPY', 'EURNZD', 'EURUSD', 'GBPAUD', 'GBPCAD', 'GBPCHF', 'GBPJPY', 'GBPNZD', 'GBPUSD', 'NOW', 'NZDCAD', 'NZDCHF', 'NZDJPY', 'NZDUSD', 'USDCAD', 'USDCHF', 'USDJPY', 'XAGUSD', 'XAUUSD']
+SYMBOLS = ['Boom 1000 Index','AUDCAD', 'AUDCHF', 'AUDJPY', 'AUDNZD', 'AUDUSD', 'CADCHF', 'CADJPY', 'CHFJPY', 'EURAUD', 'EURCAD', 'EURCHF', 'EURGBP', 'EURJPY', 'EURNZD', 'EURUSD', 'GBPAUD', 'GBPCAD', 'GBPCHF', 'GBPJPY', 'GBPNZD', 'GBPUSD', 'NOW', 'NZDCAD', 'NZDCHF', 'NZDJPY', 'NZDUSD', 'USDCAD', 'USDCHF', 'USDJPY', 'XAGUSD', 'XAUUSD']
 
 # RISK FACTOR
 RISK_FACTOR = float(os.environ.get("RISK_FACTOR"))
@@ -427,12 +427,12 @@ def help(update: Update, context: CallbackContext) -> None:
         context: CallbackContext object that stores commonly used objects in handler callbacks
     """
 
-    help_message = "This bot is used to automatically enter trades onto your MetaTrader account directly from Telegram. To begin, ensure that you are authorized to use this bot by adjusting your Python script or environment variables.\n\nThis bot supports all trade order types (Market Execution, Limit, and Stop)\n\nAfter an extended period away from the bot, please be sure to re-enter the start command to restart the connection to your MetaTrader account."
-    commands = "List of commands:\n/start : displays welcome message\n/help : displays list of commands and example trades\n/trade : takes in user inputted trade for parsing and placement\n/calculate : calculates trade information for a user inputted trade"
-    trade_example = "Example Trades 💴:\n\n"
-    market_execution_example = "Market Execution:\nBUY GBPUSD\nEntry NOW\nSL 1.14336\nTP 1.28930\nTP 1.29845\n\n"
-    limit_example = "Limit Execution:\nBUY LIMIT GBPUSD\nEntry 1.14480\nSL 1.14336\nTP 1.28930\n\n"
-    note = "You are able to enter up to two take profits. If two are entered, both trades will use half of the position size, and one will use TP1 while the other uses TP2.\n\nNote: Use 'NOW' as the entry to enter a market execution trade."
+    help_message = "Este bot se utiliza para ingresar operaciones automáticamente en su cuenta MetaTrader directamente desde Telegram. Para comenzar, asegúrese de estar autorizado para usar este bot ajustando su secuencia de comandos Python o las variables de entorno.\n\nEste bot admite todos los tipos de órdenes comerciales (ejecución de mercado, límite y parada)\n\nDespués de un período prolongado fuera del bot, asegúrese de volver a ingresar el comando de inicio para reiniciar la conexión a su cuenta MetaTrader."
+    commands = "Lista de comandos:\n/start: muestra un mensaje de bienvenida\n/help: muestra una lista de comandos y ejemplos de operaciones\n/trade: toma las operaciones ingresadas por el usuario para analizarlas y colocarlas\n/calculate: calcula la información comercial para un usuario ingresada comercio"
+    trade_example = "Operaciones de ejemplo 💴:\n\n"
+    market_execution_example = "Ejecución de mercado:\nBUY GBPUSD\nEntry NOW\nSL 1.14336\nTP 1.28930\nTP 1.29845\n\n"
+    limit_example = "Limitar la ejecución:\nBUY LIMIT GBPUSD\nEntry 1.14480\nSL 1.14336\nTP 1.28930\n\n"
+    note = "Puede ingresar hasta dos tomas de ganancias. Si se ingresan dos, ambas operaciones usarán la mitad del tamaño de la posición, y una usará TP1 mientras que la otra usa TP2.\n\nNota: use 'NOW' como entrada para ingresar una operación de ejecución de mercado.."
 
     # sends messages to user
     update.effective_message.reply_text(help_message)
